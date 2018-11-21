@@ -1,0 +1,331 @@
+
+@import './normalize.scss';
+@import './fonts';
+@import './reuse.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+}
+
+.form {
+  display: flex;
+}
+
+.link {
+  text-decoration: none;
+}
+
+body {
+  font-family: map-get($fonts, primary);
+  font-size: $default-font-size;
+  font-weight: $default-font-weight;
+}
+
+.header {
+    background-image: linear-gradient( 360deg, rgba(252,227,138, .9), rgba(243,129,129, .9)), url('../images/vulture-bg@1x.jpg'); 
+    background-position: center;
+    background-size: cover;
+}
+
+.navigation {
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 0 auto;
+    padding: 20px 0 0 0;
+    width: 1200px;
+    display: flex;
+    
+    &__logo {
+        margin: 0;
+        &-link  {
+            font-size: 30px;
+            color: $header-text-color;
+            font-weight: 700px;
+        }
+    }
+}
+
+.navigation__item {
+    margin-left: 55px;
+    &:last-child {
+        margin-left: 40px;
+    }
+}
+
+.navigation__link {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 400;
+    position: relative;
+    &:hover {
+        color: $active-link-color;
+    }
+    &:after{
+        content: '';
+        margin: 10px 0 0 0;
+        padding: 1.5px 0;
+        width: 100%;
+        display: block;
+        opacity: 0;
+        background-color: $active-link-color;
+        position: absolute;
+    }
+    &:hover::after {
+        opacity: 1;
+        transition: opacity 1s linear;
+    }
+}
+
+.navigation__icon {
+    height: 18px;
+    width: 18px;
+    fill:  $header-text-color;
+    &:hover {
+        fill: $active-link-color;
+    }
+}
+
+.introduction {
+    margin: 164px auto 0;
+    padding: 0 0 170px 0;
+    width: 840px;
+    &__subtitle {
+        font-size: 72px;
+        color: $header-text-color;
+        text-align: center;
+        font-family: map-get($fonts, subtitle);
+    }
+    &__title {
+        font-size: 150px;
+        color: $header-text-color;
+        text-align: center;
+        line-height: 0.95;
+        margin: 40px auto 0;
+        text-transform: uppercase;
+    }
+    &__btn {
+        margin: 110px auto 0;
+        padding: 10px 30px;
+    display: block;
+    border: solid 2px $header-text-color;
+    color: $header-text-color;
+    text-transform: uppercase;
+    background: transparent;
+    font-weight: 700;
+    cursor: pointer;
+        &:hover {
+            border: solid 2px $active-bnt-color;
+            color: $active-bnt-color;
+        }
+    }
+}
+
+.services {
+    margin: 48px auto 0;
+    padding: 0;
+    width: $section-block-width;
+}
+
+.services__subtitle, 
+.team__subtitle {
+    font-size: 30px;
+    color: $title-text-color;
+    text-align: center;
+    margin: 0 auto;
+    font-family: map-get($fonts, subtitle);
+}
+
+.services__title, 
+.team__title {
+    font-size: 30px;
+    color: $title-text-color;
+    text-align: center;
+    line-height: normal;
+    text-transform: uppercase;
+    margin: 20px auto 0;
+    font-weight: 700;
+    &:after {
+        content: '';
+        display: block;
+        margin: 40px auto 0;
+        padding: 1.5px 0;
+        width: 60px;
+        background: #f38181;
+    }
+}
+
+.services__list {
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 70px;
+}
+
+.services__item {
+    width: 285px;
+    padding-left: 60px;
+    position: relative;
+    &:nth-child(-n+3) {
+        margin-bottom: 100px;
+    }
+    &-title {
+        color: #333333;
+        text-transform: uppercase;
+    }
+}
+
+.services__item-info, 
+.team__info {
+    font-size: 15px;
+    color: $default-text-color;
+    text-align: left;
+    line-height: 1.7;
+    margin-top: 15px;
+    font-family: map-get($fonts, secondary);
+}
+
+.services__item-icon {
+    height: 32px;
+    width: 32px;
+    fill: $default-icon-color;
+    position: absolute;
+    transform: translate(-185%, 2%);
+}
+
+.team {
+    margin: 90px auto 0;
+    padding: 0;
+    width: $section-block-width;
+
+}
+
+ .team__info {
+     margin: 40px auto 0;
+     padding: 0;
+     width: 956px;
+    text-align: center;
+ }
+
+ .team__list {
+    justify-content: space-between;
+    margin: 90px auto 0;
+ }
+
+ .team__item-photo {
+    height: 470px;
+    width: 380px;
+    display: block; 
+}
+
+.team__item-name {
+    font-size: $default-font-size;
+    color: $title-text-color;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+.team__item-position {
+    font-size: 15px;
+    color: $default-text-color;
+    font-family: map-get($fonts, secondary);
+    font-style: italic;
+    font-weight: 300;
+    margin-top:10px;
+}
+
+.team__dropdown-list {
+    background: $default-gradient;
+    width: 100%;
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 207px 0;
+}
+
+.img-wrapper {
+    position: relative;
+    &:hover {
+        transition: box-shadow 1s, transform 1s;
+        transform: translate(-10px, -10px);
+        box-shadow: 10px 10px #95e1d3;
+    }
+    &:hover .team__dropdown-list {
+        display:flex;
+    }
+}
+
+.team__dropdown-item {
+    width: 56px;
+    height: 56px;
+    background-color: #fce38a;
+    &:not(:first-child)  {
+        border-left: 1px solid #f38181;
+    }
+    &:hover {
+        background-color: #f38181;
+    }
+    &:hover .team__dropdown-item-icon {
+        fill: #fff;
+    }
+    &-icon {
+        height: 24px;
+        width: 24px;
+        fill: $active-bnt-color;
+    }
+}
+
+.team__dropdown-item > a {
+    display: block;
+    text-align: center;
+    line-height: 5;
+}
+
+.footer {
+    margin: 80px auto 0;
+    padding: 20px 0;
+    width: $section-block-width;
+    border-top: 1px solid lightgrey;
+    display: flex;
+    justify-content: space-between;
+}
+
+.copyright {
+    font-size: 15px;
+    color: $title-text-color;
+}
+
+.copyright > span {
+    color:$active-bnt-color;
+}
+
+.email-form {
+    height: 40px;
+    &__input {
+    width: 230px;
+    font-family: map-get($fonts, secondary);
+    font-size: 15px;
+    font-style: italic;
+    font-weight: 300;
+    color: $default-text-color;
+    }
+    &__submit {
+    width: 150px;
+    background-color: $default-icon-color;
+    border: none;
+    color: white;
+    text-decoration: none;
+    font-size: $default-font-size;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-right: none;
+        &:hover {
+            background: $default-gradient;
+        }
+    }
+}
